@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --main: #fff;
+  --secondary: #fff;
+  --white: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.todo-list-container {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 10fr;
+  grid-gap: 1.5rem;
+
+  position: relative;
+
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.todo-list-container h1 {
+  font-family: "Barlow", sans-serif;
+  text-transform: capitalize;
+}
+
+.todo-list-container div.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1rem;
+}
+
+.todo-list-container div.actions > * {
+  /* type */
+}
+
+.todo-list-container div.actions input {
+  padding: 0.8rem;
+  border: 1px solid var(--main);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  font-family: inherit;
+}
+
+.todo-list-container div.actions button {
+  background-color: #001f3f;
+  color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.todo-list-container div.actions textarea {
+  resize: none;
+  grid-column: 1 / span 2;
+  font-family: inherit;
+  border: none;
+  padding: 1rem;
+}
+
+.todo-list-container div.list {
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.todo-list-container div.list ul {
+  list-style-type: none;
+}
+
+.todo-list-container div.list ul li {
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #484848;
+  font-size: 2rem;
+}
+
+.todo-list-container div.list ul li div.todo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-list-container div.list ul li div.todo div.todo-actions button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  transition: transform 100ms ease-out;
+  outline: none;
+}
+
+.edit {
+  color: #ff851b;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.delete {
+  color: #ff4136;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.todo-list-container .bottom {
+  text-align: center;
+}
+
+#clear {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #888888;
+}
+
+/* active event */
+
+.edit:active {
+  transform: scale(1.2);
+  /* transform: rotate(10deg); */
+  outline: none;
+}
+
+.delete:active {
+  transform: scale(0.8);
+  /* transform: rotate(-10deg); */
+  outline: none;
+}
+
+/* hover event */
+
+.todo-list-container div.list ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.todo span.completed {
+  text-decoration: line-through;
+}
+
+/* focus event */
+
+/* .todo-list-container div.actions button:focus {
+} */
+
+@media screen and (max-width: 540px) {
+  .todo-list-container {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .todo-list-container div.actions input {
+  }
+
+  #add {
+    font-size: 2.5rem;
+    padding: 0;
+    height: 50px;
+  }
+
+  .todo-list-container div.actions > *::placeholder {
+    font-size: 1.8rem;
+  }
+
+  .todo-list-container div.list {
+  }
+  .todo-list-container div.list ul {
+    padding: 1rem;
+  }
+
+  .todo-list-container div.list .todo {
+  }
+  .todo-list-container div.list .todo .todo-actions .todo-action {
+    font-size: 2rem;
+  }
+}
